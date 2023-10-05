@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+</head>
+<body>
+    <h1>Payment Page</h1>
+
+    <p>Please complete your payment:</p>
+
+    <form method="post" action="https://www.paypal.com/cgi-bin/webscr">
+        {% csrf_token %}
+        {{ form.render }}
+        <input type="submit" value="Proceed to PayPal">
+    </form>
+
+    <p><a href="{% url 'payment_canceled' %}">Cancel Payment</a></p>
+</body>
+</html>
